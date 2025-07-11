@@ -4,17 +4,19 @@ Este repositorio contiene un pipeline de datos local orquestado con **Apache Air
 
 ## 📦 Estructura del Proyecto
 
-etl_airflow_dbt_snowflake/
-├── airflow.cfg # Configuración de Airflow
-├── airflow_snowflake_project/ # Proyecto dbt
-├── dags/ # DAG de Airflow con BashOperators para ejecutar dbt
-├── requirements.txt # Dependencias del entorno
-├── .gitignore # Exclusiones del repositorio
-└── venv_airflow/ # Entorno virtual (excluido del repo)
+## 📦 Estructura del Proyecto
 
-yaml
-Copiar
-Editar
+```
+text
+etl_airflow_dbt_snowflake/
+├── airflow.cfg                 # Configuración de Airflow
+├── airflow_snowflake_project/ # Proyecto dbt
+├── dags/                      # DAG de Airflow con BashOperators para ejecutar dbt
+├── requirements.txt           # Dependencias del entorno
+├── .gitignore                 # Exclusiones del repositorio
+└── venv_airflow/              # Entorno virtual (excluido del repo)
+```
+
 
 ---
 
