@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: snowflake_staging
+    description: "Tablas fuente desde Snowflake: schema STAGING en DBT_DEMO"
+    database: DBT_DEMO
+    schema: STAGING
+    tables:
+      - name: orders
+        description: "Pedidos realizados por clientes"
+        columns:
+          - name: ordernumber
+            description: "ID único del pedido"
+            tests:
+              - not_null
+              - unique
+          - name: orderdate
+            description: "Fecha del pedido"
+            tests:
+              - not_null
+          - name: status
+            description: "Estado del pedido"
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['Shipped', 'Pending', 'Cancelled', 'Processing']
+          - name: customer_id
+            description: "Identificador del cliente"
+            tests:
+              - not_null
+
+      - name: orderdetails
+        description: "Detalle de cada producto incluido en el pedido"
+        columns:
+          - name: ordernumber
+            description: "ID del pedido (clave foránea)"
+            tests:
+              - not_null
+          - name: product_id
+            description: "Producto vendido"
+            tests:
+              - not_null
+          - name: quantity
+            description: "Cantidad solicitada"
+            tests:
+              - not_null
+
+models:
+  - name: stg_orders
+    description: "Vista transformada de órdenes filtradas por estado Shipped"
+    columns:
+      - name: ordernumber
+        description: "ID de orden"
+        tests:
+          - not_null
+      - name: orderdate
+        description: "Fecha del pedido"
+        tests:
+          - not_null
+      - name: status
+        description: "Estado esperado: solo 'Shipped'"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Shipped']

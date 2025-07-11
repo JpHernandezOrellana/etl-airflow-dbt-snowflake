@@ -1,0 +1,48 @@
+# ────────────────
+# Entornos virtuales
+# ────────────────
+venv/
+.venv/
+
+# ────────────────
+# Archivos de sistema y temporales
+# ────────────────
+*.pyc
+__pycache__/
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# ────────────────
+# Archivos generados por dbt
+# ────────────────
+target/
+dbt_modules/
+logs/
+manifest.json
+run_results.json
+catalog.json
+
+# ────────────────
+# Archivos sensibles y credenciales
+# ────────────────
+profiles.yml
+*.key
+*.pem
+.env
+.env.*
+
+# ────────────────
+# Archivos de Airflow (si usas SQLite o LocalExecutor)
+# ────────────────
+airflow.db
+webserver_config.py
+unittests.cfg
+
+# ────────────────
+# Configuración de IDEs (opcional)
+# ────────────────
+.vscode/
+.idea/

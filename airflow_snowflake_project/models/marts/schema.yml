@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: fct_order_items
+    description: "Tabla de hechos con detalles de pedidos despachados"
+    columns:
+      - name: ordernumber
+        description: "ID del pedido"
+        tests:
+          - not_null
+      - name: orderdate
+        description: "Fecha en que se realizó el pedido"
+        tests:
+          - not_null
+      - name: status
+        description: "Estado del pedido, debe ser 'Shipped'"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Shipped']
+      - name: product_id
+        description: "Producto incluido en el pedido"
+        tests:
+          - not_null
+      - name: quantity
+        description: "Cantidad del producto"
+        tests:
+          - not_null

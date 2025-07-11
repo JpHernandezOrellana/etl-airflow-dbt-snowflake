@@ -1,0 +1,13 @@
+name: etl_airflow_dbt_snowflake
+version: '1.0'
+config-version: 2
+
+profile: etl_airflow_dbt_snowflake
+
+model-paths: ["models"]
+target-path: "target"
+clean-targets: ["target", "dbt_modules"]
+
+# No usar 'etl_airflow_dbt_snowflake:' aquí
+models:
+  +materialized: view
